@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flashcards — Click to Flip</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Flashcard Learning</h1>
+      <p class="sub">Click the card to reveal the answer • Press Next to move on</p>
+    </header>
+
+    <section class="card-area">
+      <div id="card" class="card" tabindex="0" role="button" aria-pressed="false" aria-label="Flashcard. Click to flip.">
+        <div class="card-inner">
+          <div class="card-face card-front" id="card-front">
+            <div class="card-content" id="question">Loading...</div>
+          </div>
+          <div class="card-face card-back" id="card-back">
+            <div class="card-content" id="answer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="nextBtn" class="btn">Next ➜</button>
+      <div id="counter" class="counter">0 / 0</div>
+    </section>
+
+    <footer class="footer">
+      <small>Data loaded from <code>data/flashcards.json</code></small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
