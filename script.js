@@ -2,6 +2,7 @@ let flashcards = [];
 let currentCard = null;
 let showingAnswer = false;
 
+const card = document.getElementById('flashcard');
 const cardContent = document.getElementById('card-content');
 const statusText = document.getElementById('status');
 
@@ -24,13 +25,22 @@ function showRandomCard() {
   updateStatus();
 }
 
-// Flip between question and answer
+// Flip between question and answer with animation
 function flipCard() {
   if (!currentCard) return;
-  showingAnswer = !showingAnswer;
-  cardContent.textContent = showingAnswer
-    ? currentCard.answer
-    : currentCard.question;
+
+  // Add flip animation
+  card.classList.add('flip');
+
+  setTimeout(() => {
+    showingAnswer = !showingAnswer;
+    cardContent.textContent = showingAnswer
+      ? currentCard.answer
+      : currentCard.question;
+  }, 150); // halfway flip
+
+  // Remove animation after it finishes
+  setTimeout(() => card.classList.remove('flip'), 300);
 }
 
 // Update status (like progress or card count)
